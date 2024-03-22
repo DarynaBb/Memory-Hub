@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 await connectMongoose();
 const app = express();
 app.use( cors({
-    origin: "http://localhost:5173", // URL unseres Frontends
+    origin: process.env.CLIENT_URL, // URL unseres Frontends
     credentials: true // erlaube Cookie-Austausch
   }) );
 

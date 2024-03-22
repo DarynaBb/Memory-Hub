@@ -191,6 +191,7 @@ const AuthContextProvider = ({ children }) => {
         withCredentials: true,
       });
       setUser(response.data);
+      console.log(response.data._id)
       setUserId(response.data._id);
       setSavedStudySets(response.data.savedStudySets);
     } catch (error) {

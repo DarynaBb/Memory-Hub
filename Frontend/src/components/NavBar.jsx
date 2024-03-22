@@ -21,6 +21,7 @@ function NavBar() {
   const menuRef = useRef(null);
 
   useEffect(() => {
+    getUserInfo();
     handleWindowResize();
     window.addEventListener("resize", handleWindowResize);
     document.addEventListener("click", handleClickOutside);

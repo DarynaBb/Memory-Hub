@@ -18,7 +18,7 @@ function Modules() {
 
   return (
     <>
-    <section className='max-container padding-container mt-[30px] md:mt-[60px] lg:mt-[100px]'>
+    <section className='max-container padding-x-container mt-[30px] md:mt-[60px] lg:mt-[100px]'>
       <div className='flex justify-center mb-[20px] md:mb-[56px]'>
         <h1 className='max-w-[560px] text-[2.4em] md:text-[3em] lg:text-[4em] text-center text-leading-[120%]'>Find an appropriate topic and start your training</h1>
       </div>

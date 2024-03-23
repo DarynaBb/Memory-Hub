@@ -13,24 +13,22 @@ function HomePageButtons() {
     hasToken ? navigate("/createSet") : setShowLoginForm(true);
     setIsCreateCardsClicked(true);
   };
-
   return (
-    <section className=' sm:pt-[50px] pt-[10px] flex sm:flex-row flex-col sm:gap-6 gap-1 justify-start  '>
+    <section className='flex gap-[24px]'>
       <button
         onClick={() => navigate("/modules")}
-        className='bg-[#000] w-36 h-12 md:h-16 md:w-56 md:rounded-[36px] rounded-[28px] flex justify-center items-center flex-shrink-0  text-white font-dm-sans font-bold text-base hover:bg-white hover:text-black  '
+        className='bg-[#000] min-w-[140px] text-white whitespace-nowrap text-[1.2em] md:text-[1.6em] dm-sans-bold md:px-[48px] py-[17px] md:py-[24px] rounded-[36px] hover:bg-white hover:text-black'
       >
         STUDY SETS
       </button>
       <button
         onClick={onClickHandler}
-        className='bg-[#FFF]  w-48 md:w-60 md:h-16 h-12 md:rounded-[36px] rounded-[28px]  flex justify-center items-center flex-shrink-0 text-black font-dm-sans font-bold text-base hover:bg-[#FFC2FF]'
+        className='bg-white min-w-[140px] whitespace-nowrap text-[1.2em] md:text-[1.6em] dm-sans-bold px-[25px] md:px-[36px] py-[9px] rounded-[36px] items-center flex gap-[6px] md:gap-[15px] lg:gap-[24px] justify-center hover:bg-[#FFC2FF]'
       >
-        CREATE CARDS
-        <svg onClick={() => navigate("/")} className='w-8 h-8 ml-2'>
-          <image href={arrow} x='0' y='0' width='100%' height='100%' />
-          <image href={forward} x='0' y='0' width='100%' height='100%' />
-        </svg>
+        <p>CREATE CARDS</p>
+        <div className="bg-[#FFC2FF] p-[4px] md:p-[12px] rounded-full">
+          <img src={forward} alt="arrow" className="w-[20px] md:w-[24px]" />
+        </div>
       </button>
     </section>
   );

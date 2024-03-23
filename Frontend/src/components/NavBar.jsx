@@ -21,7 +21,6 @@ function NavBar() {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    getUserInfo();
     handleWindowResize();
     window.addEventListener("resize", handleWindowResize);
     document.addEventListener("click", handleClickOutside);
@@ -68,17 +67,17 @@ function NavBar() {
 
   return (
     <>
-      <div className='bg-[#FFC2FF] w-full h-[8px] ' />
-      <nav className='p-4 flex justify-between items-center padding-container max-container'>
+      <div className='bg-[#FFC2FF] w-full h-[8px]' />
+      <nav className='flex justify-between items-center padding-container max-container'>
         <div
-          className='flex items-center cursor-pointer '
+          className='flex items-center cursor-pointer gap-[8px]'
           onClick={() => navigate("/")}
         >
           <div
             className='w-[58px] h-[48px] bg-cover bg-no-repeat '
             style={{ backgroundImage: `url(${logo})` }}
           ></div>
-          <div className=' text-[1.6em] font-semibold ml-2 text-black font-dm-sans uppercase'>
+          <div className='text-[1.6em] open-sans-bold text-black uppercase'>
             Memory Hub
           </div>
         </div>

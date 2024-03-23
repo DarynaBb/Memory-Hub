@@ -11,8 +11,9 @@ function Footer() {
 
   return (
     <>
-      <div>
-        <div className="flex items-center ">
+    <footer className="padding-x-container pb-[32px] md:pb-[50px]">
+      <div className="border-t-[1px] border-[#BCC0C1] pt-[40px] md:pt-[70px]">
+        <div className="flex items-center">
           <div
             className="w-[58px] h-[48px] bg-cover bg-no-repeat cursor-pointer "
             onClick={() => navigate("/")}
@@ -100,7 +101,8 @@ function Footer() {
           Copyright © MemoryHub 2024
         </div>
       </div>
-      <div className="bg-[#FFC2FF] w-full h-[8px] absloute left-0 " />
+    </footer>
+    <div className="bg-[#FFC2FF] w-full h-[8px] absloute left-0 " />
     </>
   );
 }

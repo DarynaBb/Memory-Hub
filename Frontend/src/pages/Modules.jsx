@@ -45,7 +45,7 @@ function Modules() {
           </Link>
         </li>
       </ul>
-        <div className='flex justify-center border-b-[1px] border-[#BCC0C1]'>
+        <div className='flex justify-center'>
           <img src={modulesImg} alt="" />
         </div>
     </section>

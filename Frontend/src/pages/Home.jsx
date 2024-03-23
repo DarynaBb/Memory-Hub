@@ -1,16 +1,28 @@
 import React, { useContext } from "react";
+import image6 from "../assets/images/image6.png";
+import image7 from "../assets/images/image7.png";
 import image2 from "../assets/images/image2.jpg";
 import pinkImage from "../assets/images/image6.png";
 import { explainBlocks } from "../constants";
 import advantages from "../assets/images/image7.png";
 import { testimonials } from "../constants";
 import arrow from "../assets/images/arrow-forward.svg";
+
+
+import top from "../assets/images/closeForm.png";
+import Footer from "../components/Footer";
+import HomeScrollImages from "../components/HomeScrollImages";
+import HomeHeader from "../components/HomeHeader";
+import HomeFirstBody from "../components/HomeFirstBody";
+import HomeScrollPNGs from "../components/HomeScrollPNGs";
+import HomeLastBody from "../components/HomeLastBody";
 import HomePageButtons from "../components/HomePageButtons";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 function Home() {
 
-  const { hasToken, setShowLoginForm, setIsCreateCardsClicked } = useContext(AuthContext);
+  const { hasToken, setShowLoginForm, setIsCreateCardsClicked } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const scrollToTop = () => {
@@ -31,9 +43,8 @@ const onClickHandler = () => {
 };
 
   return (
-    <section className="max-container pb-[40px] md:pb-[70px]">
-      {/* bg-no-repeat bg-cover bg-center bg-fixed */}
-      <div className="hero-bg  px-[10px] md:pl-[40px] pt-[50px] flex flex-col gap-[20px] md:gap-[40px] pb-[60px]">
+    <section className="max-container">
+      <div className="hero-mobile hero-bg bg-no-repeat bg-cover bg-center bg-fixed px-[10px] md:pl-[40px] pt-[50px] flex flex-col gap-[20px] md:gap-[40px] pb-[60px]">
         <h2 className="dm-sans-bold text-[3.2em] md:text-[5em] lg:text-[8em] md:max-w-[70%] text-leading-[120%] text-white">Unleash your full potential with our free flashcard platform!</h2>
         <p className="text-[1.7em] md:text-[2.4em] text-white max-w-[500px]">Make studying fun, fast and super effective with our intelligent flashcards feature. Create your own or search for what you need in our extensive flashcards library.</p>
         <HomePageButtons />
@@ -100,7 +111,7 @@ const onClickHandler = () => {
             </div>
         </div>
       </div>
-      <div className="mx-[10px] mt-[40px] md:mt-[100px] yellow-gradient pb-[16px] md:pb-[40px] lg:pb-[70px]">
+      <div className="mx-[10px] mt-[40px] md:mt-[100px] yellow-gradient pb-[16px] md:pb-[40px] lg:pb-[70px] rounded-[8px]">
         <div className="padding-x-container flex flex-col justify-between gap-[30px]">
           <p className="text-[4em] md:text-[6em] lg:text-[8em] md:w-[60%] pt-[32px] md:pt-[60px] lg:pt-[80px] text-leading-[120%] dm-sans-bold ">Are you ready to turn learning into fun?</p>
           <div>
@@ -118,9 +129,11 @@ const onClickHandler = () => {
           <p className="text-[1.7em] text-[#9A9A9A]">Create your first flashcard set and experience how easy and fast you can improve your skills.</p>
         </div>
       </div>
+      <div className="mt-[50px]">
+            <Footer />
+      </div>
     </section>
   );
 }
 
 export default Home;
-

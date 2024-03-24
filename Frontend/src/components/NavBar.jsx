@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
@@ -14,54 +14,22 @@ function NavBar() {
     user,
   } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [showMenu, setShowMenu] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const menuRef = useRef(null);
+  
 
   useEffect(() => {
     getUserInfo();
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-      document.removeEventListener("click", handleClickOutside);
-    };
   }, []);
-
-  useEffect(() => {
-    if (showMenu) {
-      document.addEventListener("click", handleClickOutside);
-    } else {
-      document.removeEventListener("click", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [showMenu]);
-
-  const handleWindowResize = () => {
-    setIsSmallScreen(window.innerWidth < 640);
-  };
-
-  const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setShowMenu(false);
-    }
-  };
 
   const userId = user?._id;
 
   const onClickLoginHandler = () => {
     setShowLoginForm(true);
     setShowSignUpForm(false);
-    setShowMenu(false);
   };
 
   const onClickSignUpHandler = () => {
     setShowSignUpForm(true);
     setShowLoginForm(false);
-    setShowMenu(false);
   };
 
   return (
@@ -107,7 +75,7 @@ function NavBar() {
                     to={`/user/${userId}`}
                     className='auth-button text-black font-dm-sans text-[1.2em] uppercase '
                   >
-                    <img src={user?.photo} alt="" className="sm:hidden w-[24px] h-[24px] rounded-full" />
+                    <img src={user?.photo} alt="" className="sm:hidden w-[24px] h-[24px] rounded-full border-[1px] border-white shadow-lg shadow-black-500/50" />
                     <p className="hidden sm:block"> MY ACCOUNT</p>
                   </Link>
                 </li>
@@ -127,7 +95,6 @@ function NavBar() {
               </>
             )}
           </ul>
-        {/* )} */}
       </nav>
     </>
   );

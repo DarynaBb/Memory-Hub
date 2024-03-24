@@ -199,7 +199,7 @@ ul {
 .hero-bg {
   background-image: url("/hero-mobile.jpg");
   background-position: top center;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;

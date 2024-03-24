@@ -34,9 +34,7 @@ function ForeignUserStudySets() {
                     acc.push({ title: topicTitle, studySets: [studySet] });
                 }
             }
-            console.log("acc", acc)
-            return acc;
-            
+            return acc; 
         }, []);
         setGroupedStudySets(filteredStudySets);
     }, [searchQuery]);

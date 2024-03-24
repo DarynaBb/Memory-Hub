@@ -44,7 +44,7 @@ const onClickHandler = () => {
 
   return (
     <section className="max-container">
-      <div className="hero-mobile hero-bg bg-no-repeat bg-cover bg-center bg-fixed px-[10px] md:pl-[40px] pt-[50px] flex flex-col gap-[20px] md:gap-[40px] pb-[60px]">
+      <div className="hero-mobile hero-bg bg-no-repeat bg-cover bg-center  px-[10px] md:pl-[40px] pt-[50px] flex flex-col gap-[20px] md:gap-[40px] pb-[60px]">
         <h2 className="dm-sans-bold text-[3.2em] md:text-[5em] lg:text-[8em] md:max-w-[70%] text-leading-[120%] text-white">Unleash your full potential with our free flashcard platform!</h2>
         <p className="text-[1.7em] md:text-[2.4em] text-white max-w-[500px]">Make studying fun, fast and super effective with our intelligent flashcards feature. Create your own or search for what you need in our extensive flashcards library.</p>
         <HomePageButtons />

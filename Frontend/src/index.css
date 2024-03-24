@@ -37,11 +37,11 @@ ul {
   }
 
   .padding-container {
-    @apply px-[40px] py-[25px];
+    @apply px-[10px] py-[15px];
   }
 
   .padding-x-container {
-    @apply px-[40px];
+    @apply px-[10px];
   }  
 }
 
@@ -219,7 +219,16 @@ ul {
   .hero-bg {
     background-image: url("/hero.jpg");
   }
+
+  .padding-container {
+    @apply px-[40px] py-[25px];
+  }
+
+  .padding-x-container {
+    @apply px-[40px];
+  }  
 }
+
 
 
 

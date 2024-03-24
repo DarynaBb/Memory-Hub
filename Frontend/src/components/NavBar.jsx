@@ -75,7 +75,7 @@ function NavBar() {
                     to={`/user/${userId}`}
                     className='auth-button text-black font-dm-sans text-[1.2em] uppercase '
                   >
-                    <img src={user?.photo} alt="" className="sm:hidden w-[24px] h-[24px] rounded-full border-[1px] border-white shadow-lg shadow-black-500/50" />
+                    <img src={user?.photo} alt="" className="sm:hidden w-[24px] h-[24px] rounded-full border-[1px] border-[#B3AEAE]" />
                     <p className="hidden sm:block"> MY ACCOUNT</p>
                   </Link>
                 </li>

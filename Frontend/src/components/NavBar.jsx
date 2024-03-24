@@ -2,13 +2,11 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
-import menu from "../assets/images/menu.svg";
+import logout from "../assets/images/logout.png";
 
 function NavBar() {
   const {
-    showLoginForm,
     setShowLoginForm,
-    showSignUpForm,
     setShowSignUpForm,
     hasToken,
     logoutHandler,
@@ -21,6 +19,7 @@ function NavBar() {
   const menuRef = useRef(null);
 
   useEffect(() => {
+    getUserInfo();
     handleWindowResize();
     window.addEventListener("resize", handleWindowResize);
     document.addEventListener("click", handleClickOutside);
@@ -67,83 +66,35 @@ function NavBar() {
 
   return (
     <>
-      <div className='bg-[#FFC2FF] w-full h-[8px]' />
-      <nav className='flex justify-between items-center padding-container max-container'>
+      <div className='bg-[#FFC2FF] w-full h-[8px] relative' />
+      <nav className='p-4 flex justify-between items-start mobile:items-center padding-container max-container gap-[12px]'>
         <div
-          className='flex items-center cursor-pointer gap-[8px]'
+          className='flex items-center cursor-pointer '
           onClick={() => navigate("/")}
         >
           <div
             className='w-[58px] h-[48px] bg-cover bg-no-repeat '
             style={{ backgroundImage: `url(${logo})` }}
           ></div>
-          <div className='text-[1.6em] open-sans-bold text-black uppercase'>
+          <div className=' text-[1.6em]  sm:whitespace-nowrap font-semibold ml-2 text-black font-dm-sans uppercase'>
             Memory Hub
           </div>
         </div>
-        {isSmallScreen ? (
-          <div className='relative' ref={menuRef}>
-            <img
-              src={menu}
-              alt=''
-              onClick={() => setShowMenu(!showMenu)}
-              className='cursor-pointer relative w-[32px] h-[32px]'
-            />
-            {showMenu && (
-              <ul className='absolute uppercase z-50 top-5 right-5 w-[200px] h-[120px] border-2 py-4  bg-white shadow-lg rounded dm-sans-medium text-[1.4em] flex flex-col gap-5 justify-center'>
-                {!hasToken ? (
-                  <>
-                    <li
-                      onClick={onClickLoginHandler}
-                      className='px-4 py-2 cursor-pointer hover:underline'
-                    >
-                      Login
-                    </li>
-                    <li
-                      onClick={onClickSignUpHandler}
-                      className='px-4 py-2 cursor-pointer hover:underline  '
-                    >
-                      SIGNUP
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li
-                      onClick={() => navigate(`/user/${userId}`)}
-                      className='px-4 py-2 cursor-pointer hover:underline'
-                    >
-                      My Account
-                    </li>
-                    <li
-                      onClick={(e) => {
-                        logoutHandler(e);
-                        navigate("/");
-                      }}
-                      className='px-4 py-2 cursor-pointer hover:underline'
-                    >
-                      LOGOUT
-                    </li>
-                  </>
-                )}
-              </ul>
-            )}
-          </div>
-        ) : (
-          <ul className='flex gap-4 items-center uppercase'>
+          <ul className='flex gap-2 items-center uppercase flex-wrap justify-end'>
             {!hasToken ? (
               <>
-                <li className='block'>
+                <li className=''>
                   <button
                     onClick={onClickLoginHandler}
-                    className='auth-button text-black font-dm-sans text-[1.4em] font-bold uppercase hover:underline focus:underline'
+                    className='auth-button text-black font-dm-sans text-[1.2em] font-bold uppercase hover:underline focus:underline'
                   >
                     Login
                   </button>
                 </li>
-                <li className='block'>
+                <li className=''>
                   <button
                     onClick={onClickSignUpHandler}
-                    className='w-[47px] h-[12px] auth-button inline-flex items-center font-bold gap-2 px-9 py-4 justify-center bg-black text-white text-[1.2em] rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-black uppercase '
+                    className='w-[47px] h-[12px] auth-button inline-flex items-center font-bold gap-2 justify-center bg-black text-white px-9 py-4  text-[1.2em] rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-black uppercase '
                   >
                     SignUp
                   </button>
@@ -151,29 +102,32 @@ function NavBar() {
               </>
             ) : (
               <>
-                <li className='block'>
+                <li className=''>
                   <Link
                     to={`/user/${userId}`}
                     className='auth-button text-black font-dm-sans text-[1.2em] uppercase '
                   >
-                    MY ACCOUNT
+                    <img src={user?.photo} alt="" className="sm:hidden w-[24px] h-[24px] rounded-full" />
+                    <p className="hidden sm:block"> MY ACCOUNT</p>
                   </Link>
                 </li>
-                <li className='block'>
+
+                <li className=''>
                   <button
                     onClick={(e) => {
                       logoutHandler(e);
                       navigate("/");
                     }}
-                    className='inline-flex justify-center items-center gap-2.5 px-6 py-3 border border-black text-black font-bold uppercase text-[1.2em] leading-[120%] rounded-full hover:text-black hover:border-3 hover:border-black hover:bg-black hover:text-white '
+                    className='inline-flex justify-center items-center gap-2.5 sm:px-6 sm:py-3 sm:border sm:border-black text-black font-bold uppercase text-[1.2em] leading-[120%] sm:rounded-full hover:border-3 hover:border-black hover:bg-black hover:text-white '
                   >
-                    LOGOUT
+                    <img src={logout} alt="" className="sm:hidden w-[24px] h-[24px]" />
+                    <p className="hidden sm:block"> LOGOUT</p>
                   </button>
                 </li>
               </>
             )}
           </ul>
-        )}
+        {/* )} */}
       </nav>
     </>
   );

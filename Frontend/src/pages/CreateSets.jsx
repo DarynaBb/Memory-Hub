@@ -104,7 +104,7 @@ function CreateSets() {
 
   return (
     <div className=' max-container padding-container regal-blue flex flex-col relative '>
-      <BackLink />
+      <BackLink path={`/user/${userId}`}/>
       <Loader loader={loader} />
       <MessageAlert
         messageShow={messageShow}

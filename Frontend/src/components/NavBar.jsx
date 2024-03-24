@@ -62,7 +62,7 @@ function NavBar() {
                 <li className=''>
                   <button
                     onClick={onClickSignUpHandler}
-                    className='w-[47px] h-[12px] auth-button inline-flex items-center font-bold gap-2 justify-center bg-black text-white px-9 py-4  text-[1.2em] rounded-full hover:bg-white hover:text-black hover:border-2 hover:border-black uppercase '
+                    className='w-[47px] h-[12px] auth-button inline-flex items-center font-bold gap-2 justify-center bg-black text-white px-9 py-4 text-[1.2em] rounded-full hover:bg-white hover:text-black border-2 hover:border-2 hover:border-black uppercase '
                   >
                     SignUp
                   </button>
@@ -86,7 +86,7 @@ function NavBar() {
                       logoutHandler(e);
                       navigate("/");
                     }}
-                    className='inline-flex justify-center items-center gap-2.5 sm:px-6 sm:py-3 sm:border sm:border-black text-black font-bold uppercase text-[1.2em] leading-[120%] sm:rounded-full hover:border-3 hover:border-black hover:bg-black hover:text-white '
+                    className='flex justify-center items-center gap-2.5 sm:px-6 sm:py-3 sm:border sm:border-black text-black font-bold uppercase text-[1.2em] leading-[120%] sm:rounded-full hover:border-3 hover:border-black hover:bg-black hover:text-white '
                   >
                     <img src={logout} alt="" className="sm:hidden w-[24px] h-[24px]" />
                     <p className="hidden sm:block"> LOGOUT</p>

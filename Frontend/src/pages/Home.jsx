@@ -44,7 +44,7 @@ const onClickHandler = () => {
 
   return (
     <section className="max-container">
-      <div className="hero-mobile hero-bg relative  px-[10px] md:pl-[40px] pt-[50px] flex flex-col gap-[20px] md:gap-[40px] pb-[60px]">
+      <div className="hero-bg relative  px-[10px] md:pl-[40px] pt-[50px] flex flex-col gap-[20px] md:gap-[40px] pb-[60px]">
         <h2 className="dm-sans-bold text-[3.2em] md:text-[5em] lg:text-[8em] md:max-w-[70%] text-leading-[120%] text-white brightness-100">Unleash your full potential with our free flashcard platform!</h2>
         <p className="text-[1.7em] md:text-[2.4em] text-white max-w-[500px] brightness-100">Make studying fun, fast and super effective with our intelligent flashcards feature. Create your own or search for what you need in our extensive flashcards library.</p>
         <HomePageButtons />
@@ -67,7 +67,7 @@ const onClickHandler = () => {
           ))}
         </ul>
       </div>  
-      <div className="mx-[10px] py-[40px] md:py-[100px]">
+      <div className="md:mx-[10px] py-[40px] md:py-[100px]">
         <img src={pinkImage} alt="image" className="min-h-[450px] object-cover rounded-[8px]"  />
       </div>
       <div className="px-[10px] py-[40px] md:padding-x-container ">
@@ -111,13 +111,13 @@ const onClickHandler = () => {
             </div>
         </div>
       </div>
-      <div className="mx-[10px] mt-[40px] md:mt-[100px] yellow-gradient pb-[16px] md:pb-[40px] lg:pb-[70px] rounded-[8px]">
+      <div className="md:mx-[10px] mt-[40px] md:mt-[100px] yellow-gradient pb-[16px] md:pb-[40px] lg:pb-[70px] rounded-[8px]">
         <div className="padding-x-container flex flex-col justify-between gap-[30px]">
           <p className="text-[4em] md:text-[6em] lg:text-[8em] md:w-[60%] pt-[32px] md:pt-[60px] lg:pt-[80px] text-leading-[120%] dm-sans-bold ">Are you ready to turn learning into fun?</p>
           <div>
             <button
             onClick={onClickHandler}
-            className='bg-white min-w-[140px]  whitespace-nowrap text-[1.2em] md:text-[1.6em] dm-sans-bold px-[25px] md:px-[36px] py-[9px] rounded-[36px] items-center flex gap-[6px] md:gap-[15px] lg:gap-[24px] justify-center hover:bg-[#FFC2FF]'
+            className='bg-white min-w-[140px] whitespace-nowrap text-[1.2em] md:text-[1.6em] dm-sans-bold px-[25px] md:px-[36px] py-[9px] rounded-[36px] items-center flex gap-[6px] md:gap-[15px] lg:gap-[24px] justify-center hover:bg-[#FFC2FF]'
             >
             <p>CREATE CARDS</p>
             <div className="bg-[#FFC2FF] p-[4px] md:p-[12px] rounded-full">

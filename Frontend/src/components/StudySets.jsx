@@ -157,7 +157,7 @@ const slideRight = () => {
                     const index = topicIndex * topic.studySets.length + studySetIndex;
                     const styleClass = `study-set-line-${(index % 6) + 1}`;
                     return (
-                        <li key={studySet._id} onClick={() => goToSetHandler(topic._id, studySet._id)} className={`cursor-pointer border-[1px] border-[#BCC0C1] ${styleClass}-hover rounded-[8px] basis-[100%] md:basis-[48%] lg:basis-[30%] xl:basis-[23%] px-[16px] flex flex-col justify-between pt-[16px] pb-[21px] set-box-shadow `}>
+                        <li key={studySet._id} onClick={() => goToSetHandler(topic._id, studySet._id)} className={`cursor-pointer border-[1px] border-[#BCC0C1] ${styleClass}-hover rounded-[8px] basis-[100%] sm:basis-[48%] md:basis-[30%] xl:basis-[23%] px-[16px] flex flex-col justify-between pt-[16px] pb-[21px] set-box-shadow `}>
                             <p className='dm-sans-medium text-[2em]'>{studySet.title}</p>
                             <div className={`${styleClass} border-[2px] w-full mb-[8px]`}/>
                             <p className='text-[1.2em] text-leading-[150%] mb-[25px]'>{studySet.description}</p>

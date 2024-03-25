@@ -197,8 +197,18 @@ ul {
 }
 
 .hero-bg {
-  background-image: url("/hero-mobile.jpg");
-  filter: brightness(0.5);
+  /* background-image: url("/hero-mobile.jpg"); */
+}
+
+.hero-bg::before {
+  content: ""; /* Create a pseudo-element */
+  position: absolute; /* Position the pseudo-element */
+  top: 0; /* Set position */
+  left: 0; /* Set position */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-image: url("/hero-mobile.jpg"); /* Set background image */
+  filter: brightness(0.5); /* Apply filter to background image */
 }
 
 .yellow-gradient {
@@ -210,7 +220,7 @@ ul {
   #statusFilter {
     background-position-x: 120px;
   }
-  .hero-bg {
+  .hero-bg::before {
     background-image: url("/hero.jpg");
   }
 

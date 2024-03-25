@@ -198,13 +198,7 @@ ul {
 
 .hero-bg {
   background-image: url("/hero-mobile.jpg");
-  /* background-position: top center;
-  background-attachment: fixed;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat; */
+  filter: brightness(0.3);
 }
 
 .yellow-gradient {

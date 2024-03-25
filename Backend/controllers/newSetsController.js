@@ -8,6 +8,7 @@ export const createStudySetsAndCards = async (req, res) => {
   try {
     const userId = req.params.userId;
     const { topic, title, description, createdBy, cards } = req.body;
+    
     const user = await UserModel.findById(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -19,11 +20,17 @@ export const createStudySetsAndCards = async (req, res) => {
     try {
       const savedCards = await Promise.all(
         cards.map(async (cardData) => {
-          const newCard = new CardModel(cardData);
+
+          if (cardData.image ) {
+            const cloudinaryLink = await cloudinary.uploader.upload(cardData.image);
+            const newCard = new CardModel({question:cardData.question, answer:cardData.answer, image:cloudinaryLink.secure_url});
+            return await newCard.save();
+          }
+          const newCard = new CardModel({question:cardData.question, answer:cardData.answer, image:""});
           return await newCard.save();
         })
-      );
-
+        );
+        
       let topicObject;
       if (topic && typeof topic === "string") {
         // Find or create topic
@@ -36,15 +43,19 @@ export const createStudySetsAndCards = async (req, res) => {
       } else {
         throw new Error("Invalid topic data");
       }
+
       const newStudySet = new StudySetModel({
         title,
         description,
         createdBy,
         cards: savedCards.map((card) => card._id),
       });
+
       const savedStudySet = await newStudySet.save();
+
       topicObject.studySets.push(savedStudySet._id);
       await topicObject.save();
+
       user.savedStudySets.push({
         topic: topicObject._id,
         studySet: savedStudySet._id,
@@ -54,7 +65,9 @@ export const createStudySetsAndCards = async (req, res) => {
           answer: card.answer,
         })),
       });
+
       await user.save();
+
       res.status(201).json({
         message: "Flashcards created successfully",
         flashcards: {
@@ -90,6 +103,7 @@ export const editStudySet = async (req, res) => {
   const topicId = req.params.topicId;
   const studySetId = req.params.studySetId;
   const { topicTitle, title, description, cards } = req.body;
+ 
   try {
     const studySet = await StudySetModel.findByIdAndUpdate(
       studySetId,
@@ -99,74 +113,74 @@ export const editStudySet = async (req, res) => {
       },
       { new: true }
     );
+    
     if (!studySet) {
       console.error("Study set not found");
       return res.status(404).json({ error: "Study set not found" });
     }
-    const updatedCardsPromises = cards.map(async (eachCard) => {
-      const cardId = eachCard.cardId;
-      const status = eachCard.status || "not studied";
 
-      if (!cardId) {
-        try {
-          const newCard = await CardModel.create(eachCard);
+const updatedCardsPromises = cards.map(async (eachCard) => {
+  const cardId = eachCard.cardId;
+  const status = eachCard.status || "not studied"; 
+  
+  if (!cardId) {
+    try {
+      const newCard = await CardModel.create(eachCard);
 
-          await StudySetModel.findByIdAndUpdate(studySetId, {
-            $push: { cards: newCard._id },
-          });
+      await StudySetModel.findByIdAndUpdate(studySetId, {
+        $push: { cards: newCard._id },
+      });
 
-          await UserModel.findByIdAndUpdate(
-            userId,
-            {
-              $push: {
-                "savedStudySets.$[elem].cards": {
-                  card: newCard._id,
-                  status: status,
-                },
-              },
-            },
-            {
-              arrayFilters: [{ "elem.studySet": studySetId }],
-            }
-          );
+      await UserModel.findByIdAndUpdate(userId, {
+        $push: {
+          
+          "savedStudySets.$[elem].cards": {
+            card: newCard._id,
+            status: status,
+          },
+        },
+      }, {
+        arrayFilters: [{"elem.studySet": studySetId}]
+      });
 
-          return newCard;
-        } catch (error) {
-          console.error("Error creating and updating new card:", error.message);
-          return null;
-        }
-      } else {
-        try {
-          const cloudinaryLink = await cloudinary.uploader.upload(
-            eachCard.image
-          );
-          const foundCard = await CardModel.findByIdAndUpdate(
-            cardId,
-            {
-              $set: {
-                question: eachCard.question,
-                answer: eachCard.answer,
-                image: cloudinaryLink.secure_url,
-              },
-            },
-            { new: true }
-          );
-
-          if (!foundCard) {
-            console.error("Card not found");
-            return null;
-          }
-          return foundCard;
-        } catch (error) {
-          console.error("Error updating card:", error.message);
-          return null;
-        }
+      return newCard;
+    } catch (error) {
+      console.error("Error creating and updating new card:", error.message);
+      return null;
+    }
+  } else {
+    try {
+      let updateFields = {
+        question: eachCard.question,
+        answer: eachCard.answer,
+      };
+      if (eachCard.image) {
+        const cloudinaryLink = await cloudinary.uploader.upload(eachCard.image);
+        updateFields.image = cloudinaryLink.secure_url;
       }
-    });
 
-    const updatedCards = (await Promise.all(updatedCardsPromises)).filter(
-      (card) => card !== null
-    );
+      const foundCard = await CardModel.findByIdAndUpdate(
+        cardId,
+        {
+          $set: updateFields,
+        },
+        { new: true }
+      );
+
+      if (!foundCard) {
+        console.error("Card not found");
+        return null;
+      }
+      return foundCard;
+    } catch (error) {
+      console.error("Error updating card:", error.message);
+      return null;
+    }
+  }
+});
+
+const updatedCards = (await Promise.all(updatedCardsPromises)).filter(card => card !== null);
+
     const updatedTopic = await TopicModel.findByIdAndUpdate(
       topicId,
       {
@@ -176,6 +190,7 @@ export const editStudySet = async (req, res) => {
       },
       { new: true }
     );
+
     if (!updatedTopic) {
       console.error("Topic not found");
       return res.status(404).json({ error: "Topic not found" });

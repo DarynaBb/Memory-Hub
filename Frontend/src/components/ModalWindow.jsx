@@ -12,7 +12,7 @@ function ModalWindow() {
     setErrorWindow(false);
   }
   return (
-    <div className={`${(succesWindow || errorWindow) ? "block" : "hidden"} absolute z-30 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-center text-leading-[150%] min-w-[300px] bg-white flex flex-col items-center gap-[25px] px-[24px] pt-[30px] pb-[40px] rounded-[8px] border-[1px] border-[#BCC0C1]`}>
+    <div className={`${(succesWindow || errorWindow) ? "block" : "hidden"} absolute z-30 top-[20%] left-[50%] -translate-x-[50%] text-center text-leading-[150%] min-w-[300px] bg-white flex flex-col items-center gap-[25px] px-[24px] pt-[30px] pb-[40px] rounded-[8px] border-[1px] border-[#BCC0C1]`}>
         <img className={(succesWindow || errorWindow) ? "block" : "hidden"} src={succesWindow ? success : error} alt="" />
         <p className={`${(succesWindow || errorWindow) ? "block text-[1.7em]" : "hidden"}`}>{succesWindow ? "Study set was added to your account!" : "Hey! You already have it in your study sets"}</p>
         <button onClick={closeWindowHandler} className={`${succesWindow ? "block bg-[#937DE2]" : errorWindow ? "block bg-[#FF5E5E]" : "hidden"} ${btnStyle}`}>OK</button>

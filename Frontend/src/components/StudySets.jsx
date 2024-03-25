@@ -128,7 +128,7 @@ const slideRight = () => {
         <h2 className='text-[2.4em] md:text-[4em] text-center md:text-left mb-[20px] sm:mb-[30px] md:mb-[56px]'>Popular study sets</h2>
             <ul id='slider' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide flex gap-[32px] mb-[40px]'>
                 {top6MostShared?.map((studySet, index) => (
-                    <li key={studySet._id} onClick={() => goToSetHandler(studySet.topicId, studySet._id)} className={`cursor-pointer border-[1px] set-box-shadow-${index+1} border-[#BCC0C1] study-set-line-${index+1}-hover rounded-[8px] px-[16px] flex flex-col justify-between pt-[16px] pb-[21px] set-box-shadow w-[200px] h-[190px] md:w-[300px]`}>
+                    <li key={studySet._id} onClick={() => goToSetHandler(studySet.topicId, studySet._id)} className={`cursor-pointer border-[1px] set-box-shadow-${index+1} border-[#BCC0C1] study-set-line-${index+1}-hover rounded-[8px] px-[16px] flex flex-col justify-between pt-[16px] pb-[21px] set-box-shadow w-[200px] aspect-[1.66] md:w-[300px]`}>
                         <p className='dm-sans-medium whitespace-normal text-[2em]'>{studySet.title}</p>
                         <div className={`study-set-line-${index+1} border-[2px] w-full mb-[8px]`}/>
                         <p className='overflow-hidden text-ellipsis'>{studySet.description}</p>

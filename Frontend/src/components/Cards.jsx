@@ -86,7 +86,7 @@ function Cards() {
                 <p className='text-right dm-sans-bold text-[1.4em] md:text-[1.7em]'>{currentTopic}</p>
                 <Link className={`${author?.nickName ? "block": "hidden"} flex flex-col items-end text-[1.2em] md:text-[1.4em] text-leading-[150%]`} to={hasToken && user?._id === author?._id ? `/user/${user?._id}` : `/users/${author?._id}/all-study-sets` }>  
                   <p className='text-right'>Created by: <br className="md:hidden"/> {author?.nickName}</p>
-                  <img className='text-right rounded-full w-[20px] sm:w-[30px] md:w-[40px]' src={author?.photo} alt="author's photo" />
+                  <img className='text-right rounded-full w-[30px] md:w-[40px]' src={author?.photo} alt="author's photo" />
                 </Link>
               </div>
             </div>

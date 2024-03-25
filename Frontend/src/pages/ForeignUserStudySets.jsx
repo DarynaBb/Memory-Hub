@@ -44,7 +44,7 @@ function ForeignUserStudySets() {
       };
 
     return (
-        <section className='p-[40px]'>
+        <section className='max-container padding-container'>
             <BackLink path={`/module/${moduleId}/studySet/${topicId}/${studySetId}`} />
             {userStudySets && userShortData && (
                 <div>

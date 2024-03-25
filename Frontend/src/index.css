@@ -207,7 +207,9 @@ ul {
   left: 0; /* Set position */
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  background-image: url("/hero-mobile.jpg"); /* Set background image */
+  background-image: url("/hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; /* Set background image */
   filter: brightness(0.5); /* Apply filter to background image */
 }
 
@@ -232,6 +234,14 @@ ul {
     @apply px-[40px];
   }  
 }
+
+@media (min-width: 1024px) {
+  .hero-bg::before {
+    background-image: url("/hero.jpg");
+    background-attachment: fixed;
+  }
+}
+
 
 
 

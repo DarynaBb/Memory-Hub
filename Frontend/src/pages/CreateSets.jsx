@@ -93,11 +93,6 @@ function CreateSets() {
       console.error("Error creating study sets and cards:", error);
     }
   };
-  // const removeLine = (indexToRemove) => {
-  //   const updatedLines = [...lines];
-  //   updatedLines.splice(indexToRemove, 1);
-  //   setLines(updatedLines);
-  // };
   const handleSelectTopic = (selectedTopic) => {
     setUpdatedTopicTitle(selectedTopic);
   };

@@ -53,7 +53,7 @@ function UserStudySets() {
     return (
         <>
             {hasToken && (
-                <section className='md:max-container md:padding-container flex flex-col gap-[20px]'>
+                <section className='max-container padding-container flex flex-col gap-[20px]'>
                     <div className='flex justify-center items-center gap-[32px] flex-wrap sm:flex-nowrap mb-[20px] md:mb-[50px]'>
                         <div className='basis-[100%] sm:basis-[48%]'>
                             <StudySetsSearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />

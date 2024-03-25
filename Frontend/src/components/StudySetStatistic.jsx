@@ -22,8 +22,8 @@ function StudySetStatistic() {
     const totalCards = cardsCount.mastered + cardsCount.needPractice + cardsCount.notStudied;
     
     return (
-      <div className='flex justify-center w-full'>
-      <div className="mt-8 p-6 w-full bg-white rounded shadow-lg">
+      <div className='flex justify-center w-full max-container padding-x-container'>
+      <div className="w-full">
         <div className="basis-[30%]">
           <BackLink path={`/user/${user.id}/studySets`} />
         </div>
@@ -38,13 +38,12 @@ function StudySetStatistic() {
             >
               Round: {round}
             </h2>
-            <div className="flex flex-col md:flex-row justify-center gap-20">
-              {/* <div className="gap-20 lg:grid-cols-12"> */}
-                <div className="">
-                  {/* <h2>Topic: {studySet.topicTitle}</h2> */}
-                  <h3 className="dm-sans-medium text-[2.4em] mb-[20px]">
+            <h3 className="dm-sans-medium text-[2.4em] mb-[20px]">
                     {studySet.studySet.title}
                   </h3>
+            <div className="flex flex-col md:flex-row justify-between gap-[10px]">
+                <div className="">
+                  
                   <h3 className="dm-sans-medium text-[2em] mb-[10px]">
                     Description
                   </h3>
@@ -63,7 +62,7 @@ function StudySetStatistic() {
                       id="p02g"
                       max={totalCards}
                       value={cardsCount.mastered}
-                      className="mr-[10px] ml-[10px] h-[10px] w-full overflow-hidden rounded bg-slate-100 [&::-webkit-progress-bar]:bg-slate-100 [&::-webkit-progress-value]:bg-lime-500 [&::-moz-progress-bar]:bg-cyan-500"
+                      className="mr-[10px] ml-[10px] h-[10px] w-full overflow-hidden bg-slate-100 [&::-webkit-progress-bar]:bg-slate-100 [&::-webkit-progress-value]:bg-[#69CA61]"
                     ></progress>
                     <p className="dm-sans-medium text-[1.4em]">
                       {" "}
@@ -82,7 +81,7 @@ function StudySetStatistic() {
                       id="p02g"
                       max={totalCards}
                       value={cardsCount.needPractice}
-                      className="mr-[10px] ml-[10px] h-[10px] w-full overflow-hidden rounded bg-slate-100 [&::-webkit-progress-bar]:bg-slate-100 [&::-webkit-progress-value]:bg-amber-500 [&::-moz-progress-bar]:bg-cyan-500"
+                      className="mr-[10px] ml-[10px] h-[10px] w-full overflow-hidden bg-slate-100 [&::-webkit-progress-bar]:bg-slate-100 [&::-webkit-progress-value]:bg-[#FFCC29]"
                     ></progress>
                     <p className="dm-sans-medium text-[1.4em]">
                       {" "}
@@ -101,7 +100,7 @@ function StudySetStatistic() {
                       id="p02g"
                       max={totalCards}
                       value={cardsCount.notStudied}
-                      className="mr-[10px] ml-[10px] h-[10px] w-full overflow-hidden rounded bg-slate-100 [&::-webkit-progress-bar]:bg-slate-100 [&::-webkit-progress-value]:bg-red-500 [&::-moz-progress-bar]:bg-cyan-500"
+                      className="mr-[10px] ml-[10px] h-[10px] w-full overflow-hidden bg-slate-100 [&::-webkit-progress-bar]:bg-slate-100 [&::-webkit-progress-value]:bg-[#FF5E5E]"
                     ></progress>
                     <p className="dm-sans-medium text-[1.4em]">
                       {" "}
@@ -119,7 +118,6 @@ function StudySetStatistic() {
                     userId={user?._id}
                   />
                 </div>
-              {/* </div> */}
             </div>
           </>
         )}

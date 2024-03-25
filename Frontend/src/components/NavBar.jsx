@@ -51,7 +51,7 @@ function NavBar() {
           <ul className='flex gap-2 items-center uppercase flex-wrap justify-end'>
             {!hasToken ? (
               <>
-                <li className=''>
+                <li>
                   <button
                     onClick={onClickLoginHandler}
                     className='auth-button text-black font-dm-sans text-[1.2em] font-bold uppercase hover:underline focus:underline'
@@ -59,7 +59,7 @@ function NavBar() {
                     Login
                   </button>
                 </li>
-                <li className=''>
+                <li>
                   <button
                     onClick={onClickSignUpHandler}
                     className='w-[47px] h-[12px] auth-button inline-flex items-center font-bold gap-2 justify-center bg-black text-white px-9 py-4 text-[1.2em] rounded-full hover:bg-white hover:text-black border-2 hover:border-2 hover:border-black uppercase '
@@ -70,7 +70,7 @@ function NavBar() {
               </>
             ) : (
               <>
-                <li className=''>
+                <li>
                   <Link
                     to={`/user/${userId}`}
                     className='auth-button text-black font-dm-sans text-[1.2em] uppercase '
@@ -79,8 +79,7 @@ function NavBar() {
                     <p className="hidden sm:block"> MY ACCOUNT</p>
                   </Link>
                 </li>
-
-                <li className=''>
+                <li>
                   <button
                     onClick={(e) => {
                       logoutHandler(e);

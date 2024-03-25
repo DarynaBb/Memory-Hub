@@ -210,7 +210,7 @@ ul {
   background-image: url("/hero-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover; /* Set background image */
-  filter: brightness(0.5); /* Apply filter to background image */
+  filter: brightness(0.8); /* Apply filter to background image */
 }
 
 .yellow-gradient {

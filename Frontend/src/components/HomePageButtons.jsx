@@ -14,7 +14,7 @@ function HomePageButtons() {
     setIsCreateCardsClicked(true);
   };
   return (
-    <section className='flex gap-[24px]'>
+    <section className='flex gap-[24px] relative'>
       <button
         onClick={() => navigate("/modules")}
         className='bg-[#000] min-w-[140px] text-white whitespace-nowrap text-[1.2em] md:text-[1.6em] dm-sans-bold md:px-[48px] py-[17px] md:py-[24px] rounded-[36px] hover:bg-white hover:text-black'

@@ -198,7 +198,7 @@ ul {
 
 .hero-bg {
   background-image: url("/hero-mobile.jpg");
-  filter: brightness(0.3);
+  filter: brightness(0.5);
 }
 
 .yellow-gradient {

@@ -150,7 +150,7 @@ function Practice() {
               )}
               {currentCardsSet?.length > 0 && (
                 <>
-                  <div key={currentStudySet._id} className="shrink">
+                  <div key={currentStudySet._id} className="">
                     <div
                       className={`flip-container flex justify-center`}
                       onClick={handleFlip}
@@ -158,7 +158,7 @@ function Practice() {
                       <div
                         className={`flip-card ${
                           isFlipped ? "flipped" : ""
-                        } w-full sm:w-[80vw] md:w-[70vw] lg:w-[55vw] min-h-[30vh] sm:min-h-[40vh] md:min-h-[50vh] next-card`}
+                        } w-full md:w-[70vw] min-h-[50vh] next-card`}
                       >
                         <div className="flip-content flex flex-col justify-between pt-[40px] px-[20px] pb-[32px]">
                           <div

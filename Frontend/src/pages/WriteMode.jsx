@@ -129,8 +129,8 @@ function WriteMode() {
                                     <p className='text-right dm-sans-bold text-[1.4em] md:text-[1.7em]'>{studySet?.topic?.title}</p>
                                 </div>
                             </div>
-                            <div className='w-[60vw] mx-auto relative'>
-                                <div className='w-[100%] bg-[#FFF4FC] min-h-[30vh] rounded-[8px] p-[10px] flex flex-col justify-center'>
+                            <div className='w-full md:w-[80vw] mx-auto relative'>
+                                <div className='w-[100%] bg-[#FFF4FC] min-h-[50vh] rounded-[8px] p-[10px] flex flex-col justify-center'>
                                     <p className="text-[2.4em] sm:text-[3em] md:text-[4em] text-center text-leading-[100%]">{currentCard?.card?.question}</p>
                                 </div>
                                 <div className={`${showMessages ? "flex" : "hidden"} absolute z-30 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] justify-center flex-col items-center gap-[15px] px-[24px] pt-[29px] pb-[40px] bg-white mt-[20px] min-w-[300px] border-[1px] rounded-[8px] border-[#BCC0C1]`}>
@@ -148,7 +148,7 @@ function WriteMode() {
                                     </progress>
                                 </div>
                             </div>
-                            <div className={`w-[60vw] mx-auto`}>
+                            <div className={`w-full md:w-[80vw] mx-auto`}>
                                 <form action="" onSubmit={handleSubmit} className={`flex flex-col gap-[24px] items-center w-full`}>
                                     <input id="answer" disabled={showMessages ? true : false}  minLength="3" maxLength="70" required placeholder='Write your answer here' className='text-[1.7em] md:text-[2em] outline-[#BCC0C1] pl-[5px] sm:pl-[20px] md:pl-[32px] w-full border-[1px] border-[#BCC0C1] rounded-[8px] min-h-[15vh]' type="text" value={answer} onChange={(e) => setAnswer(e.target.value)} />
                                     <button className='uppercase text-[1.2em] dm-sans-bold py-[16px] px-[24px] rounded-[8px] bg-[#FFC2FF] border-[1px] hover:bg-white hover:border-[#FFC2FF]'>check my answer</button>

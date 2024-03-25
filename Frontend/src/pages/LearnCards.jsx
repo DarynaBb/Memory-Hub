@@ -129,10 +129,10 @@ function LearnCards() {
                         <p className='text-right dm-sans-bold text-[1.4em] md:text-[1.7em]'>{currentStudySet?.topic?.title}</p>
                     </div>
                     </div>
-                    <div className='w-[60vw] mx-auto relative'>
-                        <div className='w-[100%] bg-[#FFF4FC] min-h-[30vh] rounded-[8px] p-[10px] flex flex-col justify-center'>
+                    <div className='w-full md:w-[80vw] mx-auto relative'>
+                        <div className='w-[100%] bg-[#FFF4FC] min-h-[40vh] md:min-h-[50vh] rounded-[8px] p-[10px] flex flex-col justify-center'>
                             <p className="text-[2.4em] sm:text-[3em] md:text-[4em] text-center text-leading-[100%]">{currentCard?.card?.question}</p>
-                            <div className={`${showMessages ? "flex" : "hidden"} absolute z-30 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] justify-center flex-col items-center gap-[15px] px-[24px] pt-[29px] pb-[40px] bg-white mt-[20px] min-w-[300px] border-[1px] rounded-[8px] border-[#BCC0C1]`}>
+                            <div className={`${showMessages ? "flex" : "hidden"} absolute z-30 top-[20%] left-[50%] -translate-x-[50%] -translate-y-[50%] justify-center flex-col items-center gap-[15px] px-[24px] pt-[29px] pb-[40px] bg-white mt-[20px] min-w-[300px] border-[1px] rounded-[8px] border-[#BCC0C1]`}>
                                 <img src={isCorrect ? success : wrong} alt="" />
                                 <p className='text-[1.4em] text-leading-[150%]'>{isCorrect ? "Correct!" : <>Wrong! The right answer is: <br />"{correctAnswer}"</>}</p>
                                 <button onClick={okButtonHandler} className={`${isCorrect ? "bg-[#3EB655] hover:border-[#3EB655]" : "bg-[#FF5E5E] hover:border-[#FF5E5E]"} w-[100%] hover:bg-white text-white hover:text-black border-[1px] p-[6px] rounded-[5px]` }>OK</button>

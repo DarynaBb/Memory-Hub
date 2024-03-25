@@ -96,7 +96,7 @@ function Cards() {
               } mt-[15px] sm:mt-[25px] md:mt-[40px]`}
               onClick={handleFlip}
             >
-              <div className={`flip-card ${isFlipped ? "flipped " : ""} w-screen sm:w-[80vw] md:w-[60vw] min-h-[30vh] sm:min-h-[40vh] md:min-h-[50vh] next-card`}>
+              <div className={`flip-card ${isFlipped ? "flipped " : ""} w-screen md:w-[70vw] min-h-[40vh] md:min-h-[50vh] next-card`}>
                 <div className={`flip-content flex flex-col items-center justify-between p-[16px] md:p-[32px]`}>
                   <div className="basis-[10%]"/>
                   <div className="basis-[80%] flex flex-col justify-center items-center">

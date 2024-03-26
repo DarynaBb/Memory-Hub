@@ -180,10 +180,7 @@ function Practice() {
                           <p className="text-[2.4em] md:text-[4em] text-center text-leading-[100%]">
                             {currentCard?.card?.question}
                           </p>
-                          {/* min-w-[160px] md:max-w-[300px] min-h-[110px] max-h-[220px] */}
-                          <div className="flex justify-center mx-auto">
-                            <img className="min-w-[160px] md:min-w-[300px] aspect-[1.45] object-contain" src={currentCard?.card?.image} alt="" />
-                          </div>
+                            <img className="max-w-[20vw] max-h-[30vh] mx-auto" src={currentCard?.card?.image} alt="" />
                           <p className="text-[1.4em] text-leading-[150%] self-center">
                             Show the answer
                           </p>

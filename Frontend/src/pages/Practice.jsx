@@ -180,7 +180,7 @@ function Practice() {
                           <p className="text-[2.4em] md:text-[4em] text-center text-leading-[100%]">
                             {currentCard?.card?.question}
                           </p>
-                          <img src={currentCard?.card?.image} alt="" />
+                          <img className="max-w-[160px] md:max-w-[300px] object-contain" src={currentCard?.card?.image} alt="" />
                           <p className="text-[1.4em] text-leading-[150%] self-center">
                             Show the answer
                           </p>

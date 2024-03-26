@@ -181,8 +181,8 @@ function Practice() {
                             {currentCard?.card?.question}
                           </p>
                           {/* min-w-[160px] md:max-w-[300px] min-h-[110px] max-h-[220px] */}
-                          <div className=" flex justify-center mx-auto">
-                            <img className="min-w-[160px] md:w-[300px] aspect-[1.45] object-contain" src={currentCard?.card?.image} alt="" />
+                          <div className="flex justify-center mx-auto">
+                            <img className="min-w-[160px] md:min-w-[300px] aspect-[1.45] object-contain" src={currentCard?.card?.image} alt="" />
                           </div>
                           <p className="text-[1.4em] text-leading-[150%] self-center">
                             Show the answer

@@ -182,7 +182,7 @@ function Practice() {
                           </p>
                           {/* min-w-[160px] md:max-w-[300px] min-h-[110px] max-h-[220px] */}
                           <div className=" flex justify-center mx-auto">
-                            <img className="w-[160px] h-[110px] md:w-[300px] md:h-[220px] object-contain" src={currentCard?.card?.image} alt="" />
+                            <img className="min-w-[160px] md:w-[300px] aspect-[1.45] object-contain" src={currentCard?.card?.image} alt="" />
                           </div>
                           <p className="text-[1.4em] text-leading-[150%] self-center">
                             Show the answer

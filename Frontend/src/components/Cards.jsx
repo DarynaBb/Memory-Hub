@@ -101,7 +101,7 @@ function Cards() {
                   <div className="basis-[10%]"/>
                   <div className="basis-[80%] flex flex-col justify-center items-center">
                     <p className="text-[2em] sm:text-[2.5em] md:text-[3em] text-center text-leading-[100%]" >{currentCard?.question}</p>
-                    <img className="max-w-[20vw] max-h-[30vh] mx-auto" src={currentCard?.image} alt="question image" />
+                    <img className={`${currentCard?.image ? "block" : "hidden"} max-w-[20vw] max-h-[30vh] mx-auto`} src={currentCard?.image} alt="question image" />
                   </div>
                   <p className="basis-[10%] text-[1.4em] text-leading-[150%]">Show the answer</p>
                 </div>

@@ -106,7 +106,7 @@ function LoginForm() {
           </button>
         </form>
       </div>
-      <div className={`${successLoginWindow ? "block" : "hidden"} absolute z-[300] top-[50%] left-[50%]  -translate-x-[50%] text-center text-leading-[150%] min-w-[300px] bg-white flex flex-col items-center gap-[25px] px-[24px] pt-[30px] pb-[40px] rounded-[8px] border-[1px] border-[#BCC0C1]`}>
+      <div className={`${successLoginWindow ? "block" : "hidden"} absolute z-[300] top-[20%] left-[50%]  -translate-x-[50%] text-center text-leading-[150%] min-w-[300px] bg-white flex flex-col items-center gap-[25px] px-[24px] pt-[30px] pb-[40px] rounded-[8px] border-[1px] border-[#BCC0C1]`}>
         <img src={successLoginWindow && error.length < 1 ? success : errorIcon} alt="" />
         <p className='text-[1.7em]'>{error?.length > 0 ? error : "You have successfully logged in"}</p>
         <button className={`${successLoginWindow && error.length < 1? "bg-[#937DE2]" :  "bg-[#FF5E5E]"} ${btnStyle}`} onClick={() => setSuccessLoginWindow(false)}>OK</button>

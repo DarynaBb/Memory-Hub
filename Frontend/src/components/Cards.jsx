@@ -79,7 +79,7 @@ function Cards() {
           <div key={currentCardsSet._id}>
             <div className="flex justify-between flex-wrap md:flex-nowrap items-center">
               <div className="basis-[30%] md:basis-[20%] order-1">
-                <BackLink path={`/module/${moduleId}`} />
+                <BackLink path={/\d/.test(moduleId) ? `/module/${moduleId}` : `/all-study-sets`} />
               </div>
               <p className='basis-[100%] md:basis-[60%] order-3 md:order-2 text-center text-[2.4em] md:text-[3em] text-leading-[120%]'>{currentCardsSet.title}</p>
               <div className="basis-[65%] md:basis-[20%] flex flex-col items-end order-2">

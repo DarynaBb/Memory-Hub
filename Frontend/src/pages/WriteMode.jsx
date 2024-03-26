@@ -103,6 +103,7 @@ function WriteMode() {
             setIsCorrect(false);
         } else {
             setCurrentIndex(prevValue => prevValue + 1);
+            setIsCorrect(false);
         }
     }
 

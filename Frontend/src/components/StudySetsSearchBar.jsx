@@ -9,7 +9,7 @@ const StudySetsSearchBar = ({ value, onChange }) => {
     const location = useLocation();
     return (
       <form action="" className='flex justify-center w-full'>
-        <div className={`flex justify-between basis-[100%] sm:basis-1/2 ${location.pathname === `/module/${moduleId}` ? "bg-[#F6F7FB]" : "bg-white"} border-[1px] p-[8px] border-black rounded-[8px]`}>
+        <div className={`flex justify-between basis-[100%] ${location.pathname === `/module/${moduleId}` ? "bg-[#F6F7FB] sm:basis-1/2" : "bg-white"} border-[1px] p-[8px] border-black rounded-[8px]`}>
           <input
             onFocus={() => setOnFocus(true)}
             onBlur={() => setOnFocus(false)}

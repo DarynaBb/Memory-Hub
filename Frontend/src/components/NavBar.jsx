@@ -79,7 +79,6 @@ function NavBar() {
                     <p className="hidden sm:block">MY ACCOUNT</p>
                   </Link>
                 </li>
-
                 <li>
                   <button
                     onClick={(e) => {

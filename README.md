@@ -1,4 +1,4 @@
-# MemoryHub
+# Memory Hub
 
 MemoryHub is a web application designed to enhance learning through the use of flashcards. Users have the ability to create their own flashcards or utilize sets created by other users. The platform aims to provide a simple and effective way for individuals to study various topics and subjects.
 

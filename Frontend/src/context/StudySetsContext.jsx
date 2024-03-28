@@ -20,13 +20,10 @@ const StudySetsContextProvider = ({ children }) => {
   const [succesWindow, setSuccesWindow] = useState(false);
   const [errorWindow, setErrorWindow] = useState(false);
   
-
-  // const backendApiUrl = "http://localhost:3001";
   const backendApiUrl = import.meta.env.VITE_SERVER_URL;
 
   const getModulesData = async () => {
     const response = await axios.get(`${backendApiUrl}/modules`);
-    console.log(response.data);
     setModulesData(response.data);
   };
 
@@ -35,7 +32,6 @@ const StudySetsContextProvider = ({ children }) => {
   try {
     console.log(moduleId)
     const response = await axios.get(`${backendApiUrl}/modules/${moduleId}`);
-    console.log(response.data);
     setModuleData(response.data);
   } catch (error) {
     console.error('Error fetching module data:', error);
@@ -44,19 +40,16 @@ const StudySetsContextProvider = ({ children }) => {
 
   const getStudyData = async () => {
     const response = await axios.get(`${backendApiUrl}/topics`);
-    console.log(response.data);
     setStudyData(response.data);
   };
 
   const getUserShortData = async (id) => {
     const response = await axios.get(`${backendApiUrl}/users/${id}`);
-    console.log(response.data);
     setUserShortData(response.data);
   };
 
   const getUserStudySets = async (id) => {
     const response = await axios.get(`${backendApiUrl}/user/${id}/studySets`);
-    console.log("getUserStudySets", response.data);
     setUserStudySets(response.data);
   };
 
@@ -69,12 +62,9 @@ const StudySetsContextProvider = ({ children }) => {
         `${backendApiUrl}/users/${userId}/topics/${topicId}/studySets/${studySetId}`,
         studySetData
       );
-      console.log(`studySetData ${studySetData} sent to user ${userId}`);
-      // alert("Study set was added to your account");
       setSuccesWindow(true);
     } catch (error) {
       console.log("error while logging in:", error);
-      // alert("Study set already exists in your account");
       setErrorWindow(true);
     }
   };
@@ -87,7 +77,6 @@ const StudySetsContextProvider = ({ children }) => {
     createdBy,
     cards
   ) => {
-    console.log("cards:", cards);
     try {
       const savedStudySets = {
         topic: topic,
@@ -131,7 +120,6 @@ const StudySetsContextProvider = ({ children }) => {
         title: title,
         description: description,
         cards: cardsInfo.map((card) => {
-          //console.log("card:", card);
           return {
           question: card.question,
           answer: card.answer,
@@ -166,7 +154,6 @@ const StudySetsContextProvider = ({ children }) => {
       );
 
       if (response.status === 200) {
-        
         return true;
       } else {
         console.error("Error deleting card. Server response:", response);

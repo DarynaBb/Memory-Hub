@@ -25,7 +25,6 @@ function SignUpForm() {
     error,
     successSignUpWindow,
     setSuccessSignUpWindow,
-    isLoading,
   } = useContext(AuthContext);
 
   const btnStyle = "w-full py-[21px] rounded-[8px] text-white text-[1.2em]";

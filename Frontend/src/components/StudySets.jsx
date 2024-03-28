@@ -19,7 +19,6 @@ function StudySets() {
 
 useEffect(() => {
     getUserInfo();
-    console.log("id", moduleId);
     if (location.pathname === "/all-study-sets") {
         getModulesData();
         setShowLoginForm(false);
@@ -41,7 +40,6 @@ if (location.pathname === "/all-study-sets") {
         }
         return null;
     })).filter(filteredTopic => filteredTopic !== null));
-    console.log("filtered:", filteredStudySets);
 } else {
     filteredStudySets = (moduleData?.topics || []).map(topic => {
         const filteredSets = (topic.studySets || []).filter(studySet => studySet.title.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -50,7 +48,6 @@ if (location.pathname === "/all-study-sets") {
         }
         return null;
     }).filter(filteredTopic => filteredTopic !== null);
-    console.log("filtered:", filteredStudySets);
 }
 
 

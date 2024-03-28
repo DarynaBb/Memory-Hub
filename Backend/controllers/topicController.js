@@ -1,5 +1,6 @@
 import TopicModel from "../models/TopicModel.js";
 import StudySetModel from "../models/StudySetModel.js";
+import { createStudySetsAndCards } from "./newSetsController.js";
 
 export const addTopic = async (req, res) => {
   try {
@@ -24,8 +25,6 @@ export const addStudySetToTopic = async (req, res) => {
   }
 };
 
-// Diese Funktion fügt alle StudySets mit ihren Karten zu einem Topic hinzu
-import { createStudySetsAndCards } from "./newSetsController.js";
 
 export const addAllStudySetsWithCardsToTopic = async (req, res) => {
   const topicId = req.params.id;
@@ -35,7 +34,6 @@ export const addAllStudySetsWithCardsToTopic = async (req, res) => {
     const studySetIds = await createStudySetsAndCards(studySets);
 
     if (studySetIds.length > 0) {
-      console.log("studySetIds: ", studySetIds);
       await TopicModel.findByIdAndUpdate(topicId, {
         $push: { studySets: { $each: studySetIds } },
       });
@@ -53,10 +51,7 @@ export async function getTopicIdByTitle(req, res) {
   try {
     const title = req.params.title;
     const topic = await TopicModel.findOne({ title });
-
-    console.log("topic:", topic);
     res.status(200).json(topic._id);
-
     return topic._id;
   } catch (error) {
     console.error("Error getting topic by title:", error.message);

@@ -4,15 +4,12 @@ import { useLocation } from 'react-router-dom';
 import { StudySetsContext } from '../context/StudySetsContext';
 
 const StudySetsSearchBar = ({ value, onChange }) => {
-    const [onFocus, setOnFocus] = useState(false);
     const { moduleId } = useContext(StudySetsContext);
     const location = useLocation();
     return (
       <form action="" className='flex justify-center w-full'>
         <div className={`flex justify-between basis-[100%] ${location.pathname === `/module/${moduleId}` ? "bg-[#F6F7FB] sm:basis-1/2" : "bg-white"} border-[1px] p-[8px] border-black rounded-[8px]`}>
           <input
-            onFocus={() => setOnFocus(true)}
-            onBlur={() => setOnFocus(false)}
             type="text"
             placeholder="Search for topics or keywords"
             value={value}

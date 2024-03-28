@@ -47,29 +47,6 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  // const signUpHandler = async (e) => {
-  //   e.preventDefault();
-
-  //   resetMessages();
-
-  //   try {
-  //     const resp = await axios.post(`${backendApiUrl}/register`, {
-  //       email: emailSignUp,
-  //       password: passwordSignUp,
-  //       firstName,
-  //       lastName,
-  //       nickName
-  //     });
-  //     console.log("Erfolgreich registriert:", resp.data);
-  //     setEmailSignUp("");
-  //     setPasswordSignUp("");
-  //     setMsg("Du hast dich erfolgreich registriert.");
-  //   } catch (error) {
-  //     setErrorMessages(error);
-  //     console.log("error while signing up:", error);
-  //   }
-  // };
-
   const signUpHandler = async (e) => {
     e.preventDefault();
     resetMessages();
@@ -85,7 +62,6 @@ const AuthContextProvider = ({ children }) => {
         lastName,
         nickName
       });
-      console.log("Erfolgreich registriert:", resp.data);
       setEmailSignUp("");
       setPasswordSignUp("");
       setMsg("Du hast dich erfolgreich registriert.");
@@ -115,7 +91,6 @@ const AuthContextProvider = ({ children }) => {
       );
    
       setMsg(`Erfolgreich eingeloggt: ${email}. JWT erhalten.`);
-      console.log(`Erfolgreich eingeloggt: ${email}. JWT erhalten.`);
       // Token im Local Storage speichern
       localStorage.setItem(TOKEN_STORAGE_KEY, resp.data.token);
       setHasToken(true);
@@ -137,7 +112,6 @@ const AuthContextProvider = ({ children }) => {
         {},
         { withCredentials: true }
       );
-      console.log("Erfolgreich ausgeloggt", resp.data);
       setMsg("Erfolgreich ausgeloggt.");
       // Token aus dem Local Storage entfernen
       localStorage.removeItem(TOKEN_STORAGE_KEY);
@@ -151,13 +125,10 @@ const AuthContextProvider = ({ children }) => {
 
   const handleIfUserHasToken = () => {
     let JWTinfocookie = cookie.get("JWTinfo");
-    console.log("JWTinfo cookie", JWTinfocookie); // => j:{"expires":"2024-01-25T09:26:05.444Z","email":"Anna@dci.org"}
     if (!JWTinfocookie) return;
     JWTinfocookie = JWTinfocookie.replace("j:", "");
     const cookieValueObj = JSON.parse(JWTinfocookie);
-    console.log("cookieValueObj", cookieValueObj);
     const expirationInMs = new Date(cookieValueObj.expires) - new Date();
-    console.log("JWT läuft ab in", expirationInMs / 1000, "Sekunden");
 
     if (expirationInMs <= 0) return;
 
@@ -173,7 +144,6 @@ const AuthContextProvider = ({ children }) => {
       const resp = await axios.get(`${backendApiUrl}/user`, {
         withCredentials: true,
       });
-      console.log("resp.data:", resp.data);
        setMsg(resp.data);
     } catch (error) {
       setErrorMessages(error);
@@ -191,7 +161,6 @@ const AuthContextProvider = ({ children }) => {
         withCredentials: true,
       });
       setUser(response.data);
-      console.log(response.data._id)
       setUserId(response.data._id);
       setSavedStudySets(response.data.savedStudySets);
     } catch (error) {

@@ -8,9 +8,7 @@ export const addStudySet = async(req, res) => {
     try {
         const newStudySet = new StudySetModel(req.body);
         await newStudySet.save();
-       
         res.status(201).send('new StudySet added'); 
-        console.log(newStudySet)
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -62,8 +60,6 @@ export const getAllStudyData = async (req, res) => {
             { path: 'createdBy', model: 'User' } // Populate createdBy field
           ]
         });
-  
-  
       res.status(200).json({ topics });
     } catch (error) {
       console.error('Error fetching data:', error);

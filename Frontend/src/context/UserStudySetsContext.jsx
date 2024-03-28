@@ -17,7 +17,6 @@ const UserStudySetsContextProvider = ({ children }) => {
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  // const backendApiUrl = "http://localhost:3001";
   const backendApiUrl = import.meta.env.VITE_SERVER_URL;
 
   const handleShowAlert = (msg) => {
@@ -53,7 +52,6 @@ const UserStudySetsContextProvider = ({ children }) => {
     try {
       console.log("userId and setId received to axios", userId, setId);
       await axios.delete(`${backendApiUrl}/user/${userId}/${setId}`);
-      // alert("Study set was deleted");
       handleShowAlert("Study set was deleted");
     } catch (error) {
       console.log("error while logging in:", error);

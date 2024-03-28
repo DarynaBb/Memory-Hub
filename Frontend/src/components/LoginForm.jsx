@@ -35,7 +35,7 @@ function LoginForm() {
   const btnStyle = "w-full py-[21px] rounded-[8px] text-white text-[1.2em]";
 
   return (
-    <div className='max-container mx-auto '>
+    <div className='max-container mx-auto'>
       <div
         className={`${
           showLoginForm && !hasToken ? "flex" : "hidden"

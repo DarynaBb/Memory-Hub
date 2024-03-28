@@ -62,7 +62,6 @@ export const getUserStudySets = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
     res.status(200).json({ savedStudySets: user.savedStudySets });
   } catch (error) {
     console.error("Error fetching saved study sets:", error);
@@ -119,7 +118,6 @@ export const addStudySetToUser = async (req, res) => {
 export const deleteSavedStudySet = async (req, res) => {
   const userId = req.params.userId;
   const studySetId = req.params.setId;
-  //console.log(userId, studySetId)
   try {
       await UserModel.findByIdAndUpdate(userId, {
         $pull: { savedStudySets: { _id: studySetId } }
@@ -137,15 +135,9 @@ export const updateCardStatus = async (req, res) => {
   const studySetId = req.params.studySetId;
   const cardId = req.params.cardId;
   const newStatus = req.body.newStatus;
-  // console.log("USERId:", userId);
-  // console.log("StudySet:", studySetId);
-  // console.log("CardId:", cardId);
-  // console.log("Nes Status:", newStatus);
 
   try {
-    // Find the user by userId and update the card
     const user = await UserModel.findById(userId);
-    console.log("User:", user);
     const updatedUser = await UserModel.findOneAndUpdate(
       {
         _id: userId,
@@ -162,7 +154,6 @@ export const updateCardStatus = async (req, res) => {
         arrayFilters: [{ "set._id": studySetId }, { "card._id": cardId }],
       }
     );
-    //console.log("User:", updatedUser);
     res.status(200).send(updatedUser);
   } catch (error) {
     console.error("Error retrieving user information:", error);
@@ -170,92 +161,92 @@ export const updateCardStatus = async (req, res) => {
   }
 };
 
-      export const updateUser = async (req, res) => {
-        const userId = req.params.id;
-        const { email, firstName, lastName } = req.body;
-    
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-          return res.status(404).send(`No user with id: ${userId}`);
-        }
-    
-        try {
-          let updatedUser = { email, firstName, lastName };   
-          updatedUser = await UserModel.findByIdAndUpdate(userId, updatedUser, { new: true });
-          res.status(200).send(updatedUser);
-        } catch (error) {
-          console.error("Error updating user:", error);
-          res.status(500).send("Internal Server Error");
-        }
-    };
+export const updateUser = async (req, res) => {
+    const userId = req.params.id;
+    const { email, firstName, lastName } = req.body;
 
-    export const updateUserPhoto = async (req, res) => {
-      const userId = req.params.id;
-      const form = formidable({});
-      const [fields, files] = await form.parse(req);
-      let photoUrl;
-    
-      try {
-        // Überprüfen, ob ein Foto hochgeladen wurde
-        if (files.photo) {
-          const filePath = files.photo[0]?.filepath;
-          // Bild mit Cloudinary hochladen
-          const result = await cloudinary.uploader.upload(filePath);
-          // URL des hochgeladenen Bildes erhalten
-          photoUrl = result.secure_url;
-        } else if (fields.photoUrl) {
-          // Wenn kein Foto hochgeladen wurde, aber eine URL im Formularfeld übergeben wurde
-          photoUrl = fields.photoUrl.toString();
-        }
-      } catch (err) {
-        console.error(err);
-      }
-      
-      if (!mongoose.Types.ObjectId.isValid(userId)) {
-        return res.status(404).send(`No user with id: ${userId}`);
-      }
-    
-      try {
-        // Aktualisierten Benutzer mit dem neuen Profilbild erstellen
-        const updatedUser = await UserModel.findByIdAndUpdate(
-          userId,
-          { photo: photoUrl },
-          { new: true }
-        );
-        res.status(200).send(updatedUser);
-      } catch (error) {
-        console.error("Error updating user Photo:", error);
-        res.status(500).send("Internal Server Error");
-      }
-    };    
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(404).send(`No user with id: ${userId}`);
+    }
 
-    export const deleteUserAccount = async (req, res) => {
-      const userId = req.params.id;
-      try {
-        const deletedUser = await UserModel.findByIdAndDelete(userId);
-        res.status(200).send(deletedUser);
-      } catch (error) {
-        console.error("Error deleting user:", error);
-        res.status(500).send("Internal Server Error");
-      }
-  };
-    
+    try {
+      let updatedUser = { email, firstName, lastName };   
+      updatedUser = await UserModel.findByIdAndUpdate(userId, updatedUser, { new: true });
+      res.status(200).send(updatedUser);
+    } catch (error) {
+      console.error("Error updating user:", error);
+      res.status(500).send("Internal Server Error");
+    }
+};
 
-      export const getUserShortData = async (req, res) => {
-        const userId = req.params.id;
+export const updateUserPhoto = async (req, res) => {
+  const userId = req.params.id;
+  const form = formidable({});
+  const [fields, files] = await form.parse(req);
+  let photoUrl;
 
-        try {
-          const user = await UserModel.findById(userId);
+  try {
+    // Überprüfen, ob ein Foto hochgeladen wurde
+    if (files.photo) {
+      const filePath = files.photo[0]?.filepath;
+      // Bild mit Cloudinary hochladen
+      const result = await cloudinary.uploader.upload(filePath);
+      // URL des hochgeladenen Bildes erhalten
+      photoUrl = result.secure_url;
+    } else if (fields.photoUrl) {
+      // Wenn kein Foto hochgeladen wurde, aber eine URL im Formularfeld übergeben wurde
+      photoUrl = fields.photoUrl.toString();
+    }
+  } catch (err) {
+    console.error(err);
+  }
   
-          if (!user) {
-              return res.status(404).send("User not found"); 
-          }
-          res.send({
-              nickName: user.nickName,
-              photo: user.photo
-            });
-  
-      } catch (error) {
-          console.error("Error retrieving user information:", error);
-          res.status(500).send("Internal Server Error"); 
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
+    return res.status(404).send(`No user with id: ${userId}`);
+  }
+
+  try {
+    // Aktualisierten Benutzer mit dem neuen Profilbild erstellen
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      userId,
+      { photo: photoUrl },
+      { new: true }
+    );
+    res.status(200).send(updatedUser);
+  } catch (error) {
+    console.error("Error updating user Photo:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};    
+
+export const deleteUserAccount = async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const deletedUser = await UserModel.findByIdAndDelete(userId);
+    res.status(200).send(deletedUser);
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+
+  export const getUserShortData = async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+      const user = await UserModel.findById(userId);
+
+      if (!user) {
+          return res.status(404).send("User not found"); 
       }
-      }
+      res.send({
+          nickName: user.nickName,
+          photo: user.photo
+        });
+
+  } catch (error) {
+      console.error("Error retrieving user information:", error);
+      res.status(500).send("Internal Server Error"); 
+  }
+  }

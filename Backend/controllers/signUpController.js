@@ -201,7 +201,7 @@ export const postSignupController = async (req, res) => {
                 <!--[if !mso]><!--><td class="t57" style="width:480px;">
                 <!--<![endif]-->
                 <!--[if mso]><td class="t57" style="width:480px;"><![endif]-->
-                <p class="t63" style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans';line-height:21px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;letter-spacing:-0.64px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Didn&#39;t register on Memory Hub? <a class="t64" href="http://localhost:5173" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#2F353D;mso-line-height-rule:exactly;" target="_blank">Click here to let us know.</a></p></td>
+                <p class="t63" style="margin:0;Margin:0;font-family:BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif,'Albert Sans';line-height:21px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;letter-spacing:-0.64px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Didn&#39;t register on Memory Hub? <a class="t64" href="https://memoryhub-frontend-l8jf.onrender.com" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#2F353D;mso-line-height-rule:exactly;" target="_blank">Click here to let us know.</a></p></td>
                 </tr></table>
                 </td></tr></table></td>
                 </tr></table>
@@ -227,9 +227,7 @@ export const verifyToken = async (req, res) => {
       user.verified = true;
       user.verificationToken = null;
       await user.save();
-  
       res.redirect(process.env.CLIENT_URL); // Redirect to a success page
-
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal server error' });

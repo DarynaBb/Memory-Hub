@@ -95,8 +95,6 @@ export const addAllTopicsToModule = async (req, res) => {
       
   }
 
-  
-
 export async function updateModuleIcon(req, res) {
     const moduleId = req.params.id;
     const { icon } = req.body;

@@ -1,6 +1,5 @@
 import express from "express";
 import { addStudySetToUser, getUserShortData, deleteSavedStudySet, deleteUserAccount, getUserInfo, updateCardStatus, updateUser, updateUserPhoto, getUserStudySets} from "../controllers/userController.js";
-import { validateRequest } from "../middleware/validateRequest.js";
 import isAuth from "../middleware/isAuth.js";
 import { postChangePasswordController } from "../controllers/ChangePasswordController.js";
 

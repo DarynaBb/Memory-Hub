@@ -8,7 +8,6 @@ const EditBtns = (props) => {
   const deleteSavedStudySet = async () => {
     try {
         const url = `${backendApiUrl}/${props.userId}/${props.setId}`;
-        console.log("Delete URL:", url); 
         await axios.delete(url);
         props.setStudySetDeleted(true);
         window.scrollTo({ top: 0, behavior: "smooth" });

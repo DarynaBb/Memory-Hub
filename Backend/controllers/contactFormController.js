@@ -31,6 +31,4 @@ export const sendContactForm = async (req, res) => {
   } catch (error) {
     res.status(500).send("Error while sending or saving the message: " + error.message);
   }
-
-  console.log("Received Form Data:", { firstName, lastName, email, message });
 };

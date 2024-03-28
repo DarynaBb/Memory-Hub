@@ -1,5 +1,6 @@
 # Node.js
 node_modules/
+.env
 
 # Dependency directories
 # https://docs.npmjs.com/cli/v7/configuring-npm/package-json#files

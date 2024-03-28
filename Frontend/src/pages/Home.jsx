@@ -1,21 +1,11 @@
 import React, { useContext } from "react";
-import image6 from "../assets/images/image6.png";
-import image7 from "../assets/images/image7.png";
 import image2 from "../assets/images/image2.jpg";
 import pinkImage from "../assets/images/image6.png";
 import { explainBlocks } from "../constants";
 import advantages from "../assets/images/image7.png";
 import { testimonials } from "../constants";
 import arrow from "../assets/images/arrow-forward.svg";
-
-
-import top from "../assets/images/closeForm.png";
 import Footer from "../components/Footer";
-import HomeScrollImages from "../components/HomeScrollImages";
-import HomeHeader from "../components/HomeHeader";
-import HomeFirstBody from "../components/HomeFirstBody";
-import HomeScrollPNGs from "../components/HomeScrollPNGs";
-import HomeLastBody from "../components/HomeLastBody";
 import HomePageButtons from "../components/HomePageButtons";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -130,7 +120,7 @@ const onClickHandler = () => {
         </div>
       </div>
       <div className="mt-[50px]">
-            <Footer />
+        <Footer />
       </div>
     </section>
   );

@@ -31,7 +31,6 @@ function PracticeButtons({currentSet}) {
             } else {
                 handleNextCard(currentSet);
             }
-            console.log("Status changed");
         } catch (error) {
             console.log("error while changing status:", error);
         }

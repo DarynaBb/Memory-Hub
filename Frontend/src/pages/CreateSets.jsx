@@ -13,17 +13,14 @@ import MessageAlert from "../components/MessageAlert";
 function CreateSets() {
   const {
     createStudySetsAndCards,
-    answer,
     setAnswer,
-    image,
     setImage,
-    question,
     setQuestion,
     setTitle,
     setDescription,
   } = useContext(StudySetsContext);
   const [updatedTopicTitle, setUpdatedTopicTitle] = useState("");
-  const { user, userId, getUserInfo, hasToken } = useContext(AuthContext);
+  const { userId, getUserInfo, hasToken } = useContext(AuthContext);
   const { readImageAsBase64 } = useContext(UserStudySetsContext);
   const [lines, setLines] = useState([1]);
   const [messageShow, setmessageShow] = useState(false);

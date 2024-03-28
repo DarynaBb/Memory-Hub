@@ -52,7 +52,6 @@ export const createStudySetsAndCards = async (req, res) => {
       });
 
       const savedStudySet = await newStudySet.save();
-
       topicObject.studySets.push(savedStudySet._id);
       await topicObject.save();
 
@@ -91,7 +90,6 @@ export const createStudySetsAndCards = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    console.log("Error in backend, in catch");
     return res
       .status(500)
       .json({ error: "Internal server error from backend catch" });
@@ -126,14 +124,12 @@ const updatedCardsPromises = cards.map(async (eachCard) => {
   if (!cardId) {
     try {
       const newCard = await CardModel.create(eachCard);
-
       await StudySetModel.findByIdAndUpdate(studySetId, {
         $push: { cards: newCard._id },
       });
 
       await UserModel.findByIdAndUpdate(userId, {
         $push: {
-          
           "savedStudySets.$[elem].cards": {
             card: newCard._id,
             status: status,
@@ -142,7 +138,6 @@ const updatedCardsPromises = cards.map(async (eachCard) => {
       }, {
         arrayFilters: [{"elem.studySet": studySetId}]
       });
-
       return newCard;
     } catch (error) {
       console.error("Error creating and updating new card:", error.message);
@@ -158,7 +153,6 @@ const updatedCardsPromises = cards.map(async (eachCard) => {
         const cloudinaryLink = await cloudinary.uploader.upload(eachCard.image);
         updateFields.image = cloudinaryLink.secure_url;
       }
-
       const foundCard = await CardModel.findByIdAndUpdate(
         cardId,
         {
@@ -180,7 +174,6 @@ const updatedCardsPromises = cards.map(async (eachCard) => {
 });
 
 const updatedCards = (await Promise.all(updatedCardsPromises)).filter(card => card !== null);
-
     const updatedTopic = await TopicModel.findByIdAndUpdate(
       topicId,
       {

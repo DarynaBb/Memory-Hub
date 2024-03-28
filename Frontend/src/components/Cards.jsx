@@ -20,8 +20,6 @@ function Cards() {
   
   useEffect(() => {
     getStudyData();
-    console.log("Topic Id:", topicId);
-    console.log("StudySet Id:", studySetId);
     getUserInfo();
     setModuleId(moduleId);
     setTopicId(topicId);

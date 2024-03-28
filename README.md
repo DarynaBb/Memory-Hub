@@ -45,10 +45,10 @@ Daryna, Mina, Deniz and Reza
 
 ## License
 
-[ISC License](#)
+[ISC License](https://opensource.org/license/isc-license-txt)
 
 ## Contact
 
 For any questions or feedback, feel free to reach out to us at the following email address: info@Memory-hub.com
 
-Also, visit our [website](#) for more information.
+Also, visit our [website](https://memoryhub-frontend-l8jf.onrender.com) for more information.

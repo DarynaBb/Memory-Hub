@@ -27,7 +27,6 @@ function UserStudySet() {
             {studySet && (
               <>
                     <StudySetStatistic />
-                    {/* <StartPracticeButtons edit={studySet?.edit} studySetId={studySet?._id} userId={user?._id}/> */}
                 </>
             )}
         </section>

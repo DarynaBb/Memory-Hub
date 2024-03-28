@@ -52,8 +52,6 @@ function Practice() {
     }
   }, [user, id]);
 
-  console.log("studyset:", currentStudySet);
-
   useEffect(() => {
     setCurrentIndex(0);
   }, [filterStatus]);

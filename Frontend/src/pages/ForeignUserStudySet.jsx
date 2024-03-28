@@ -20,14 +20,11 @@ function ForeignUserStudySet() {
   const {user} = useContext(AuthContext);
   const { addStudySetToUser, getStudyData, studyData} = useContext(StudySetsContext);
   const { hasToken, getUserInfo } = useContext(AuthContext);
-  const navigate = useNavigate();
   const {userId, topicId, studySetId} = useParams();
 
 
   useEffect(() => {
     getStudyData();
-    console.log("Topic Id:", topicId);
-    console.log("StudySet Id:", studySetId);
     getUserInfo();
   }, []);
 

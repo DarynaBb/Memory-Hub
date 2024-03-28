@@ -3,7 +3,6 @@ import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import PasswordChangePopup from "../components/PasswordChangePopup";
-//import { set } from "mongoose";
 import { useNavigate } from "react-router-dom";
 import { UserStudySetsContext } from "../context/UserStudySetsContext";
 import AlertDismissibleSuccess from "../components/AlertDismissibleSuccess";
@@ -13,7 +12,6 @@ function ProfileSettings() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [photo, setPhoto] = useState("");
   const [isPasswordChangeOpen, setIsPasswordChangeOpen] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
@@ -77,8 +75,6 @@ function ProfileSettings() {
               },
             }
           );
-
-          // const photoUrl = response.data.photoUrl;
           setPhoto(photoUrl); // Aktualisiere das angezeigte Profilbild
         }
 
@@ -88,8 +84,6 @@ function ProfileSettings() {
           email,
           photo, // Verwende selectedPhoto statt photo
         });
-
-        // alert("Profile successfully updated");
         handleShowAlert("Profile successfully updated");
         setTimeout(() => {
           navigate(`/user/${user._id}`);
@@ -138,7 +132,6 @@ function ProfileSettings() {
       setSelectedPhoto(e.target.files[0]);
       const base64data = await readImageAsBase64(e.target.files[0]);
       setPhoto(base64data);
-      console.log(photo);
     }
   };
 
@@ -225,7 +218,6 @@ function ProfileSettings() {
               <div className="md:mr-[40px] w-52">
                 <img
                   className="w-[50px] h-[50px]border-2 rounded-full border-white shadow-lg"
-                  // src="https://i.ibb.co/0jP2nLy/Profile-photo.png"
                   src={photo}
                   alt="Profile-photo"
                   border="0"
@@ -398,8 +390,7 @@ function ProfileSettings() {
               <p className="dm-sans-medium text-[2em]">
                 Change password
               </p>
-              <div className="mt-4 ">
-                {/* <label className="block text-sm font-semibold mb-2" htmlFor="password">Password:</label> */}
+              <div className="mt-4">
                 <button className={isPasswordChangeOpen ? 'hidden' : "bg-black text-white px-8 py-3 dm-sans-bold text-[1.2em] rounded-md mt-4 hover:bg-white hover:text-black hover:border-black border-2"} onClick={handleOpenPasswordChange}>Change Passwort</button>
                 {isPasswordChangeOpen && (
                   <PasswordChangePopup
@@ -412,7 +403,6 @@ function ProfileSettings() {
                   />
                 )}
               </div>
-
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-4 mt-6">

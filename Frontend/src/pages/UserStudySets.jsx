@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { UserStudySetsContext } from '../context/UserStudySetsContext';
 import { useNavigate } from 'react-router-dom';
-import UserStudySetsSearchBar from '../components/UserStudySetsSearchBar';
 import arrow from "../assets/images/arrow-forward.svg";
 import StudySetsSearchBar from '../components/StudySetsSearchBar';
 
 
 function UserStudySets() {
-    const { getUserInfo, user, savedStudySets, setSavedStudySets, hasToken } = useContext(AuthContext);
+    const { getUserInfo, user, hasToken } = useContext(AuthContext);
     const { setStudySetId, deleteSavedStudySet } = useContext(UserStudySetsContext);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredStudySets, setFilteredStudySets] = useState([]);

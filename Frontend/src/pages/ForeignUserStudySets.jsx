@@ -17,8 +17,6 @@ function ForeignUserStudySets() {
         getUserShortData(userId);
     }, []);
 
-    console.log("userStudysets", userStudySets)
-
     useEffect(() => {
         const filteredStudySets = userStudySets?.savedStudySets?.reduce((acc, studySet) => {
             const topicTitle = studySet?.topic?.title;

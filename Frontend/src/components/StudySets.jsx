@@ -14,8 +14,6 @@ function StudySets() {
   const navigate = useNavigate();
   const { moduleId } = useParams();
   const location = useLocation();
-  console.log("id", moduleId)
-
 
 useEffect(() => {
     getUserInfo();

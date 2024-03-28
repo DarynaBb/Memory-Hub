@@ -82,8 +82,6 @@ function LearnCards() {
     };
 
     const onClickAnswerHandler = (option) => {
-        console.log("Option:", option)
-        console.log("correct answer:", correctAnswer)
         setShowMessages(true);
         if (correctAnswer === option) {
             setMessage("Correct!");

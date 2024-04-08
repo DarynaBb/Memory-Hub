@@ -12,6 +12,7 @@ function NavBar() {
     logoutHandler,
     getUserInfo,
     user,
+    userId
   } = useContext(AuthContext);
   const navigate = useNavigate();
   
@@ -20,7 +21,7 @@ function NavBar() {
     getUserInfo();
   }, []);
 
-  const userId = user?._id;
+  // const userId = user?._id;
 
   const onClickLoginHandler = () => {
     setShowLoginForm(true);

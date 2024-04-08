@@ -126,12 +126,12 @@ const AuthContextProvider = ({ children }) => {
 
   const handleIfUserHasToken = () => {
     let JWTinfocookie = cookie.get("JWTinfo");
-    if (!JWTinfocookie) logoutHandler();
+    if (!JWTinfocookie) return;
     JWTinfocookie = JWTinfocookie.replace("j:", "");
     const cookieValueObj = JSON.parse(JWTinfocookie);
     const expirationInMs = new Date(cookieValueObj.expires) - new Date();
 
-    if (expirationInMs <= 0) logoutHandler();
+    if (expirationInMs <= 0) return;
 
     setHasToken(true);
     setUser({ email: cookieValueObj.email });

@@ -166,10 +166,12 @@ const AuthContextProvider = ({ children }) => {
         withCredentials: true,
       });
       setUser(response.data);
+      console.log("SUCCESS")
       // setUserId(response.data._id);
       setSavedStudySets(response.data.savedStudySets);
     } catch (error) {
       setErrorMessages(error);
+      console.log("FAIL")
     }
   };
 

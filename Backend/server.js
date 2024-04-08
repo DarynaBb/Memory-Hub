@@ -8,8 +8,6 @@ import studyDataRouter from "./routes/studyDataRouter.js"
 import userRouter from "./routes/userRouter.js";
 import bodyParser from 'body-parser';
 
-
-
 const PORT = process.env.PORT || 3001;
 
 await connectMongoose();

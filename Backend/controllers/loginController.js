@@ -53,7 +53,7 @@ export const postLoginController = async (req, res) => {
         // res.cookie('JWTinfo', payload, options);
 
 
-        return res.send({success: true, msg: `User ${loggedUser.email} logged in`})
+        return res.send({success: true, id:loggedUser._id, msg: `User ${loggedUser.email} logged in`})
      
         
     } catch (error) {

@@ -97,6 +97,7 @@ const AuthContextProvider = ({ children }) => {
       setEmailLogin("");
       setPasswordLogin("");
       setSuccessLoginWindow(true);
+      setUserId(resp.data.id);
     } catch (error) {
       setSuccessLoginWindow(true);
       setErrorMessages(error);
@@ -104,7 +105,7 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const logoutHandler = async (e) => {
+  const logoutHandler = async(e) => {
     resetMessages();
     try {
       const resp = await axios.post(
@@ -125,12 +126,12 @@ const AuthContextProvider = ({ children }) => {
 
   const handleIfUserHasToken = () => {
     let JWTinfocookie = cookie.get("JWTinfo");
-    if (!JWTinfocookie) return;
+    if (!JWTinfocookie) logoutHandler();
     JWTinfocookie = JWTinfocookie.replace("j:", "");
     const cookieValueObj = JSON.parse(JWTinfocookie);
     const expirationInMs = new Date(cookieValueObj.expires) - new Date();
 
-    if (expirationInMs <= 0) return;
+    if (expirationInMs <= 0) logoutHandler();
 
     setHasToken(true);
     setUser({ email: cookieValueObj.email });
@@ -161,7 +162,7 @@ const AuthContextProvider = ({ children }) => {
         withCredentials: true,
       });
       setUser(response.data);
-      setUserId(response.data._id);
+      // setUserId(response.data._id);
       setSavedStudySets(response.data.savedStudySets);
     } catch (error) {
       setErrorMessages(error);

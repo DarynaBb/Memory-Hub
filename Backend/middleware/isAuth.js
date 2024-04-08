@@ -14,7 +14,7 @@ export default (req, res, next) => {
         next();
     } catch (error) {
         console.error("Error verifying token:", error.message);
-        return res.status(401).send({ error: "Unauthorized" });
+        return res.status(401).send({ error: "Unauthorized, Error verifying token" });
     }
 };
 

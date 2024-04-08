@@ -92,8 +92,7 @@ const AuthContextProvider = ({ children }) => {
    
       setMsg(`Erfolgreich eingeloggt: ${email}. JWT erhalten.`);
       // Token im Local Storage speichern
-      // console.log("TOKEN",resp.data.token)
-      // localStorage.setItem(TOKEN_STORAGE_KEY, resp.data.token);
+      localStorage.setItem(TOKEN_STORAGE_KEY, resp.data.token);
       setHasToken(true);
       setEmailLogin("");
       setPasswordLogin("");

@@ -19,7 +19,7 @@ function NavBar() {
 
   useEffect(() => {
     getUserInfo();
-  }, [user, userId]);
+  }, []);
 
   // const userId = user?._id;
 

@@ -1,7 +1,8 @@
-# MemoryHub
+# Memory Hub
 
 MemoryHub is a web application designed to enhance learning through the use of flashcards. Users have the ability to create their own flashcards or utilize sets created by other users. The platform aims to provide a simple and effective way for individuals to study various topics and subjects.
 
+![alt text](https://i.ibb.co/HBb7qfN/Screenshot-2024-03-28-at-13-43-43.png)
 ---
 
 ## Backend
@@ -44,10 +45,10 @@ Daryna, Mina, Deniz and Reza
 
 ## License
 
-[ISC License](#)
+[ISC License](https://opensource.org/license/isc-license-txt)
 
 ## Contact
 
 For any questions or feedback, feel free to reach out to us at the following email address: info@Memory-hub.com
 
-Also, visit our [website](#) for more information.
+Also, visit our [website](https://memoryhub-frontend-l8jf.onrender.com) for more information.

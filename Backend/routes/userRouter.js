@@ -7,8 +7,7 @@ const router = express.Router();
 
 router
   .patch("/users/:userId/topics/:topicId/studySets/:studySetId", addStudySetToUser)
-  // .get("/user", isAuth, getUserInfo)
-  .get("/user", getUserInfo)
+  .get("/user", isAuth, getUserInfo)
   .get("/users/:id", getUserShortData)
   .get("/user/:id/studySets", getUserStudySets)
   .delete("/user/:userId/:setId", deleteSavedStudySet)

@@ -162,9 +162,11 @@ const AuthContextProvider = ({ children }) => {
   const getUserInfo = async () => {
     if (!hasToken) return;
     try {
+      console.log("TRY STarts SUCCESS")
       const response = await axios.get(`${backendApiUrl}/user`, {
         withCredentials: true,
       });
+      console.log("after TRY STarts SUCCESS")
       setUser(response.data);
       console.log("SUCCESS")
       // setUserId(response.data._id);
